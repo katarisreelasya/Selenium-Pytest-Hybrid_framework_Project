@@ -1,3 +1,46 @@
-execute specific task using pytest -m task2  
-generate report pytest --html=reeport.html 
-execute with console logs py -m pytest -v -s 
+Zing Wells Automation – Selenium + PyTest (Hybrid Framework)
+This project automates key workflows of the Zing Wells web application using Selenium WebDriver and Python, implemented with a Hybrid Automation Framework (POM + Data‑Driven + Keyword‑Driven).
+It is designed to be maintainable, scalable, and easy to extend for regression testing.
+
+🔑 Key Features
+
+Selenium + Python automation
+Hybrid Framework (POM + Data/Data Utilities + Keywords)
+PyTest runner with fixtures
+HTML reporting
+Screenshots on failures
+Console logging support
+Tag‑based test execution
+
+
+📁 Project Structure (Simple Overview)
+/tests            → Test cases  
+/pages            → Page Object Model classes  
+/utilities        → Helper methods (browser, logger, config, data)  
+/testdata         → Test input files  
+/reports          → HTML reports & logs  
+conftest.py       → Browser setup + fixtures  
+requirements.txt  → Dependencies list
+
+
+▶ Running the Project
+1️⃣ Install dependencies
+pip install -r requirements.txt
+
+2️⃣ Run all tests
+pytestShow more lines
+
+3️⃣ Run tests with console logs
+py -m pytest -v -sShow more lines
+
+4️⃣ Run tests with specific marker (example: task2)
+pytest -m task2Show more lines
+
+5️⃣ Generate HTML report
+pytest --html=report.htmlShow more lines
+
+6️⃣ Run HTML report + console logs together
+py -m pytest -v -s --html=report.htmlShow more lines
+
+7️⃣ Run tests in parallel (if xdist installed)
+pytest -n 3Show more lines
