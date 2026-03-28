@@ -38,14 +38,14 @@ class Task3Page:
             )
 
             # Track tab handles
-            main_tab = self.driver.current_window_handle
-            old_handles = set(self.driver.window_handles)
+            main_tab = self.driver.current_window_handle #stores current window id
+            old_handles = set(self.driver.window_handles)   #converting all window handles to a set
 
-            google_btn.click()
+            google_btn.click()  #Continue with Google
 
             # Wait until Google popup window appears
             try:
-                self.wait.until(lambda d: len(set(d.window_handles) - old_handles) == 1)
+                self.wait.until(lambda d: len(set(d.window_handles) - old_handles) == 1)    #len({"CDwindow-new"} - {"CDwindow-abc"}) == 1
             except TimeoutException:
                 raise RuntimeError("Google sign‑in window did not open.")
 

@@ -2,10 +2,7 @@
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
-from selenium.webdriver.common.by import By
 from selenium.webdriver.common.action_chains import ActionChains
-from selenium.webdriver.support.ui import WebDriverWait
-from selenium.webdriver.support import expected_conditions as EC
 import time, csv, os
 
 from utils.helpers import (
@@ -77,7 +74,7 @@ class Task1Page:
             print("Could not find 'Upcoming Bikes Under 5 Lakh(s)' link.")
 
         # ---------------- STEP 3: Find Honda Image in Brand Carousel ----------------
-        section = find_brand_section(self.driver)
+        section = find_brand_section(self.driver) #helper to find the section containing brand carousel, if exists. If not found, returns None
 
         if section is None:
             print("Brand carousel not found. Opening manufacturers page...")
@@ -89,7 +86,7 @@ class Task1Page:
 
         honda_img = locate_honda_img(section)
         max_clicks = 12
-
+        
         if honda_img is None:
             for _ in range(max_clicks):
                 right = find_arrow(self.driver, section, "right")
@@ -155,7 +152,7 @@ class Task1Page:
             time.sleep(1)
 
         rows = self.extract_upcoming_cards()
-
+        #If data found: Creates directory, writes CSV with headers and rows.
         if rows:
             print("\nUpcoming Honda Bikes (≤ ₹5 Lakhs) ---")
             ensure_dir("outputs/upcoming_honda_bikes.csv")
@@ -217,7 +214,7 @@ class Task1Page:
                         break
                 except:
                     pass
-
+            # Append to rows if we have at least a name. Price and launch can be empty.
             if name:
                 rows.append([name, price, launch])
 

@@ -1,0 +1,3 @@
+execute specific task using pytest -m task2  
+generate report pytest --html=reeport.html 
+execute with console logs py -m pytest -v -s 
